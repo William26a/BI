@@ -1,0 +1,435 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPe8Pli81K+fNGsObdmFtUb",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/William26a/BI/blob/main/Challenges%20T%C3%A9cnicos%20I\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Manipulación de texto**"
+      ],
+      "metadata": {
+        "id": "N_fC7OR2Qm1a"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "\n",
+        "Escribe una función que tome una cadena de texto y devuelve TRUE si es un palindromo (se lee igual de izquierda a derecha que de derecha a izquierda) y FALSE en caso contrario. Ignora mayusculas, minusculas y espacios\n"
+      ],
+      "metadata": {
+        "id": "1ZZN018kMsfe"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "id": "hipvD8cNMjzK"
+      },
+      "outputs": [],
+      "source": [
+        "def es_palindromo(cadena):\n",
+        "    cadena = cadena.replace(\" \",\"\").lower()\n",
+        "    return cadena == cadena[::-1]"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(es_palindromo(\"Anita lava la tina\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1YgGqdIvQNbJ",
+        "outputId": "621c3393-8d9d-4110-ddee-8e0cc26aba2c"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "True\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ahora un ejemplo en donde se demuestre lo contrario"
+      ],
+      "metadata": {
+        "id": "qaw5uSEdQg7T"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def es_palindromo(cadena):\n",
+        "    cadena = cadena.replace(\" \",\"\").lower()\n",
+        "    return cadena == cadena[::-1]"
+      ],
+      "metadata": {
+        "id": "vZVHA6ZhUqOw"
+      },
+      "execution_count": 7,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(es_palindromo(\"Mi mundo\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VyloumBQUto0",
+        "outputId": "6994f79c-62cf-46a9-c371-81c896ae498a"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "False\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Manipulación de listas**"
+      ],
+      "metadata": {
+        "id": "VVdOugGdU0WX"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Escribe una función que tome una lista de números y devuelva una nueva lista con los elementos únicos (sin duplicados), manteniendo el orden original  "
+      ],
+      "metadata": {
+        "id": "pnh_8O5dU68q"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def elementos_unicos(lista):\n",
+        "    unicos = []\n",
+        "    for elemento in lista:\n",
+        "      if elemento not in unicos:\n",
+        "        unicos.append(elemento)\n",
+        "    return unicos"
+      ],
+      "metadata": {
+        "id": "-t4jdN_xVQu4"
+      },
+      "execution_count": 9,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(elementos_unicos([1,3,5,1,8,3,6,5,9,1]))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MxsYhdK5WKi6",
+        "outputId": "606804e1-dd5d-40aa-8bd2-1108bb2d18c8"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[1, 3, 5, 8, 6, 9]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Algoritmos Básicos**"
+      ],
+      "metadata": {
+        "id": "1jl7wWyMW1pn"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Escribe una función que implemente una busqueda binaria en una lista ordenada, la función debe devolver el indice del elemento si se encuentra, o -1 si no esta presente"
+      ],
+      "metadata": {
+        "id": "eHREo2w-W-k8"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def busqueda_binaria(lista, objetivo):\n",
+        "    izquierda, derecha = 0, len(lista) -1\n",
+        "    while izquierda <= derecha:\n",
+        "        medio = (izquierda + derecha) // 2\n",
+        "        if lista[medio] == objetivo:\n",
+        "            return medio\n",
+        "        elif lista[medio] < objetivo:\n",
+        "            izquierda = medio + 1\n",
+        "        else:\n",
+        "            derecha = medio - 1\n",
+        "    return -1\n",
+        ""
+      ],
+      "metadata": {
+        "id": "ooLS1RfSXRx3"
+      },
+      "execution_count": 13,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lista = [1, 3, 5, 7, 9, 11]"
+      ],
+      "metadata": {
+        "id": "p07M1M-OYKC4"
+      },
+      "execution_count": 14,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(busqueda_binaria(lista, 8))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tjAK22KvYTSi",
+        "outputId": "78fa63b0-e5cf-4771-b735-039cd4b9904c"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "-1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Matemáticas**"
+      ],
+      "metadata": {
+        "id": "fjfghcroZOWR"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Escribe una función que calcule el factoria de un número usando recursión"
+      ],
+      "metadata": {
+        "id": "uPgA1-ySZUqy"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def factorial(n):\n",
+        "    if n == 0 or n == 1:\n",
+        "      return 1\n",
+        "    else:\n",
+        "      return n * factorial(n-1)"
+      ],
+      "metadata": {
+        "id": "Lc_pDgn-ZkW7"
+      },
+      "execution_count": 20,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(factorial(0))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fzmQXrUOZ88o",
+        "outputId": "52cd3b6d-d02b-45d1-d4df-cc9ff5151e17"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Diccionario**"
+      ],
+      "metadata": {
+        "id": "3A-Cl1qcaRNX"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Escribe una función que cuente la frecuencia de cada palabra en una cadena de texto y devuelva un diccionario con las palabras como claves y su frecuencia como valores"
+      ],
+      "metadata": {
+        "id": "A86frtfdaWmZ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def frecuencia_palabras(cadena):\n",
+        "    palabras = cadena.split()\n",
+        "    frecuencia = {}\n",
+        "    for palabra in palabras:\n",
+        "        if palabra in frecuencia:\n",
+        "            frecuencia[palabra] += 1\n",
+        "        else:\n",
+        "            frecuencia[palabra] = 1\n",
+        "    return frecuencia"
+      ],
+      "metadata": {
+        "id": "eOpWjKJwaogq"
+      },
+      "execution_count": 24,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(frecuencia_palabras(\"la casa de mi mamá es muy grande y bonita, pero la de mi papá es mucho más grande y bonita\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "W98b1d6fbR4a",
+        "outputId": "31d8d4ab-3f48-4786-f8e6-cc4c425e5264"
+      },
+      "execution_count": 26,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'la': 2, 'casa': 1, 'de': 2, 'mi': 2, 'mamá': 1, 'es': 2, 'muy': 1, 'grande': 2, 'y': 2, 'bonita,': 1, 'pero': 1, 'papá': 1, 'mucho': 1, 'más': 1, 'bonita': 1}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Problemas lógicos**"
+      ],
+      "metadata": {
+        "id": "aKgL-cMPcDGZ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Escribe una función que determine si un número es primo."
+      ],
+      "metadata": {
+        "id": "2R6mnSoacH8l"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def es_primo(n):\n",
+        "    if n <= 1:\n",
+        "        return False\n",
+        "    for i in range(2, int(n**0.5) + 1):\n",
+        "        if n % i == 0:\n",
+        "            return False\n",
+        "    return True"
+      ],
+      "metadata": {
+        "id": "-yV0DgwwcRJy"
+      },
+      "execution_count": 28,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(es_primo(9))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_XTXLRrMeoPH",
+        "outputId": "d81d58f6-5bf8-4f41-964d-0b16f6c149c3"
+      },
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "False\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
